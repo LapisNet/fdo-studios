@@ -1,8 +1,8 @@
 {
   "0": {
-    "title": "项目名称",
-    "titb": "项目小标题",
-    "info1": "内容1",
-    "info2": "内容2"
+    "title": "SMCFJS计划",
+    "titb": "MC创作者的全新开发工具",
+    "info1": "更少的开发成本\n更快的开发\n更方便的书写\n可本地化\n原生js框架 无需Node即可使用",
+    "info2": "链接: <em style='color: red;'>未公测</em>"
   }
 }

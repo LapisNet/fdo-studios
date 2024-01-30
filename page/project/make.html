@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>项目管理</title>
+    <link rel="stylesheet" type="text/css" href="../../css/fdo.css">
+    <script type="text/javascript" src="../../js/jquery-3.5.1.min.js"></script>
+<body>
+<div class="tit">FDO 项目管理</div><br><br>
+<div class="div">load</div>
+<script>
+    $(document).ready( function(){
+        // 项目内容
+        $.get("../../js/mock/project.json", function(data) {
+            $('.div').empty()
+            for (let key in data) {
+                $('.div').append(`
+                  <project>
+                    <pro>
+                      <tita>${data[key].title}</tita>
+                      <titb>${data[key].titb}</titb>
+                      <info>${data[key].info1}</info>
+                      <info>${data[key].info2}</info>
+                    </pro>
+                  <br>
+                  </project>
+                `)
+            }
+        })
+    });
+</script>
+</body>
+</head>
+</html>

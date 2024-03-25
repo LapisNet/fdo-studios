@@ -83,9 +83,6 @@ footer {
 @media only screen and (min-width: 1000px) {
 	/* Title */
 	.xstit {
-		background-image: url("dirt.png");
-		border-radius: 0;
-		box-shadow: 0 0 0 0,0 0 0 0;
 		padding: 20px;
 		padding-left: 25px;
 		font-size: 35px;
@@ -96,8 +93,6 @@ footer {
 		color: black;
 	}
 	.xstext {
-		background-image: url("glass_pink.png");
-		border-radius: 0;
 	}
 
 
@@ -117,19 +112,10 @@ footer {
 
 
 	button {
-		background-image: url("glass_pink.png");
-		border: 0;
-		border-radius: 0;
 	}
 	info2 {
-		background-image: url("planks_oak.png");
-		border: 0;
-		color: black;
 	}
 	footer {
-		background-image: url("bedrock.png");
-		border-radius: 0;
-		color: yellow;
 		font-size: 10px;
 	}
 }

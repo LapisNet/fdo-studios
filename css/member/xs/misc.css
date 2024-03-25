@@ -1,10 +1,10 @@
 /* Misc Css */
 /* Copyright 2024 XiaozhiSans. All Rights Reserved. */
-/* Last Update: 2024/02/12 */
+/* Last Update: 2024/03/25 */
 
 /* Custom Font */
 @font-face {
-	font-family: "被爱判处终身孤寂";
+	font-family: 被爱判处终身孤寂;
 	src: url("被爱判处终身孤寂.ttf") format("truetyple");
 }
 
@@ -19,7 +19,7 @@ a:hover {
 
 /* Custom Bg */
 body {
-	background-image: url("bg.png");
+	background-image: url("https://i0.imgs.ovh/2024/03/21/eayT5.png");
 	font-family: 被爱判处终身孤寂, 微软雅黑;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
@@ -31,8 +31,7 @@ body {
 		font-size: 20px;
 	}
 	body {
-		/* background-image: url("bg_desktop.jpg"); */
-		background-image: url("bg_desktop.png");
+		background-image: url(https://i0.imgs.ovh/2024/03/18/eBapI.png);
 		background-repeat: no-repeat;
 		background-size: auto 100%;
 	}

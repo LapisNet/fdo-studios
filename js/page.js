@@ -44,7 +44,7 @@ const 我不知道该叫什么函数 = function() {
 
 	// 夜间自动护眼
 	const protect_eyes = document.getElementsByClassName("protect_eyes")[0];
-	if(h >= 8 && h <= 5) {
+	if(h >= 20 || h <= 5) {
 		protect_eyes.style.display = "block";
 	}
 	else {

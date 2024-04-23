@@ -19,6 +19,7 @@ body {
 	margin-left: -8px;
 	position: absolute;
 	background-color: #000b;
+	pointer-events: none;
 }
 
 .noscript_background {

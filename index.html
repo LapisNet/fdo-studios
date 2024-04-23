@@ -1,71 +1,204 @@
-<!doctype html>
-<html lang="zh">
-  <head>
-    <meta charset="UTF-8" />
-    <title>FreeDayO - FDO NetWork</title>
-    <link rel="stylesheet" type="text/css" href="css/fdo.css">
-  </head>
-  <body>
-    <div id="app">
-      <div class="tit">FreeDayO 官网</div>
-      <br>
-      <br>
-      <tita>FDO开发组</tita><br>
-      <titb>致力于开发MC资源的开发者团队</titb>
-      <br>
-      <info>从因热爱</info>
-      <info>致于开发</info>
-      <br>
-      <titb>我们是谁</titb>
-      <br>
-      <info><em onclick="reload();">FreeDayO</em> 是一个致力于Minecraft相关开发的开发组</info>
-      <info><em class="lb pointer" onclick="window.location.href='./page/project/make.html';">点我查看项目</em></info>
-      <info>作为全新的开发团队</info>
-      <info>我们将以全新的姿态与优质的作品得到大家的支持与认可</info>
-      <br>
-      <titb>成员列表</titb>
-      <br>
-      <div id="person">
+<!doctype html><html lang="zh">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="description" content="FreeDayO 开发组页面">
+		<meta name="keywords" content="fdo, freedayo, fdo开发组, freedayo开发组, github">
+		<meta name="author" content="XiaozhiSans(FDO开发组)">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>FreeDayO | FDO 开发组</title>
+		<link rel="icon" type="image/webp" href="https://xiaozhisans.github.io/friends/avatar/fdo-simple.webp">
+		<link rel="stylesheet" type="text/css" href="css/.css">
+		<!-- <link rel="stylesheet" type="text/css" href="css/fdo.css"> -->
 
-      </div>
-      <!--<br>
-      <titb>QQ群</titb>-->
-      <br>
-      <info><em class="lb" onclick="window.location.href='https://qm.qq.com/q/i396A4OR6E'">聊天群 822693016</em></info>
-<!--      <info><em class="lb">点我面试</em></info>-->
-      <br>
-      <titb>新闻</titb>
-      <br>
-      <div id="new">
+		<!-- 不得不提前加载的js -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.5.1/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="js/page.js"></script>
+		<!-- 结束 不得不提前加载的js -->
+	</head>
 
-      </div>
-      <br>
-      <titb>接下来去？</titb>
-      <br>
-      <info><em class="lb pointer" onclick="window.location.href='https://github.com/BuTian103/FreeDayO-NetWork';">Github</em></info>
-<!--      <info><em class="lb pointer" onclick="window.location.href='login.html';">登录</em></info>-->
-      <info><em class="pointer" style="color: lightblue;" onclick="window.location.href='https://fds.moe';">FDS --- 友情链接</em></info>
+	<body>
+		<!-- 夜间护眼 -->
+		<div class="protect_eyes" style="display: none;"></div>
+		<!-- 结束 夜间护眼 -->
 
-    </div>
-    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-    <script>
-      $(document).ready( function(){
-        // 新闻
-        $.get("new.txt", function(data) {
-          let lines = data.split('\n')
-          lines.forEach(element => {
-            $("#new").append(`<info><em>${element}</em></info>`)
-          })
-        })
-        // 成员列表
-        $.get("./js/mock/person.json", function(data) {
-          for (let key in data) {
-            $('#person').append(`
-              <info><em class="pointer" onclick="window.location.href='./page/person/${data[key].url}.html'">${data[key].name}</em></info>
-            `)
-          }
-        })
-      })
-    </script>
-  </body>
+		<!-- 没有js权限警告 -->
+		<noscript class="noscript_background">
+			<div class="noscript_panel">
+				本页面需要 JavaScript 才能正常运作,<br>
+				请确保你的浏览器支持 JavaScript 或<br>
+				JavaScript 未被禁止后再试。
+			</div>
+		</noscript>
+		<!-- 结束 没有js警告 -->
+
+		<!-- 顶部logo -->
+		<a onclick="#index" class="tit-img"><img id="fdo-logo" src="public/FDOLOGO.png" srcc="img/fdo-logo.webp"></a>
+		<!-- 结束 顶部logo -->
+
+		<!-- 顶部菜单 -->
+		<div id="menu">
+			<a href="#404" class="tab-btn" style="display: none;">404</a>
+			<a href="#index" class="tab-btn" pressed="true">主页</a>
+			<!-- <a href="#index-new" class="tab-btn">新闻</a> -->
+			<a href="#project" class="tab-btn">项目</a>
+			<a href="#member" class="tab-btn">成员</a>
+			<a href="#about" class="tab-btn">关于</a>
+			<a href="#friend" class="tab-btn">友链</a>
+			<!-- 我太懒了,这个就先鸽着吧( -->
+			<!-- <a href="#setting" class="tab-btn">设置</a> -->
+		</div>
+		<!-- 结束 顶部菜单 -->
+
+		<!-- 404 -->
+		<div id="404" name="404" class="panel" style="display: none;">
+			<h1 class="tit">啊嘞嘞?</h1>
+			<h2 class="subtit">这个页面找不到了... Σ(っ °Д °;)っ</h2>
+			<dl>404 Not Found</dl>
+		</div>
+		<!-- end 404 -->
+
+		<!-- index -->
+		<div id="index" name="index" class="panel">
+			<h1 class="tit">欢迎!</h1>
+			<h2 class="subtit">Welcome!</h2>
+			<h3 id="time-text">o(^▽^)o</h3>
+			<info>
+				今天是 <info id="date">Loading...</info><br>
+				现在是 <info id="time">Loading...</info>
+			</info>
+			<line> 我只是一条可爱的分割线啦 (⑅˃◡˂⑅) </line>
+			<h1 class="tit">新闻</h1>
+			<h2 class="subtit">News</h2>
+			<info>来看看FDO开发组的动态吧 ~(￣▽￣)~</info>
+			<dl id="news">Loading...</dl>
+		</div>
+		<!-- end index -->
+
+		<!-- project -->
+		<div id="project" name="project" class="panel" style="display: none;">
+			<h1 class="tit">项目</h1>
+			<h2 class="subtit">Projects</h2>
+			<info>＜（＾－＾）＞</info>
+			<dl id="projects">Loading...</dl>
+		</div>
+		<!-- end project -->
+
+		<!-- member -->
+		<div id="member" name="member" class="panel" style="display: none;">
+			<h1 class="tit">成员</h1>
+			<h2 class="subtit">Members</h2>
+			<info>开发组里都有谁呢? (¬‿¬)</info>
+			<dl id="members">Loading...</dl>
+		</div>
+		<!-- end member -->
+
+		<!-- about -->
+		<div id="about" name="about" class="panel" style="display: none;">
+			<h1 class="tit">关于</h1>
+			<h2 class="subtit">About</h2>
+			<info>这里有开发组的基本信息! o(￣▽￣)o</info>
+			<dl>开发组文案我就先鸽了 ˋ( ° ▽、° ) </dl>
+		</div>
+		<!-- end about -->
+
+		<!-- friend -->
+		<div id="friend" name="friend" class="panel" style="display: none;">
+			<h1 class="tit">友情链接</h1>
+			<h2 class="subtit">Link exchange</h2>
+			<dl id="links">Loading...</dl>
+		</div>
+		<!-- end friend -->
+
+		<!-- indev setting -->
+		<div id="setting" name="setting" class="panel" style="display: none;">
+			<h1 class="tit">设置</h1>
+			<h2 class="subtit">Settings</h2>
+			<dl>
+				<form id="settings">
+					<label for="opacity">窗口透明度</label><br>
+					<input type="number" id="opacity" name="opacity"><br>
+					<label for="background">背景图片</label><br>
+					<input type="text" id="background" name="background"><br>
+					<label for="theme">主题:</label>
+					<select id="theme">
+						<option value="default">默认</option>
+					</select>
+				</form>
+			</dl>
+		</div>
+		<!-- end setting -->
+
+		<!-- 可以延迟加载的js -->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				/* 载入新闻 */
+				$.get("https://butian103.github.io/FreeDayO-NetWork/new.txt", function(data) {
+					$("#news").empty();
+					let lines = data.split('\n');
+					lines.forEach(element => {
+						$("#news").append(`<dt><h3>${element}</h3></dt>`);
+					});
+				});
+				/* 载入成员 */
+				$.get("https://butian103.github.io/FreeDayO-NetWork/js/mock/person.json", function(data) {
+					$("#members").empty();
+					for (let key in data) {
+						$("#members").append(`
+							<dt>
+								<a class="button" onclick="location.href='https://butian103.github.io/FreeDayO-NetWork/page/person/${data[key].url}.html'" href="#">${data[key].name}</a>
+							</dt>
+						`);
+					}
+				});
+				/* 载入项目 */
+				$.get("https://butian103.github.io/FreeDayO-NetWork/js/mock/project.json", function(data) {
+					$("#projects").empty();
+					for (let key in data) {
+						$("#projects").append(`
+							<dt>
+								<h1 class="tit">${data[key].title}</h1>
+								<h2 class="subtit">${data[key].titb}</h2>
+								<info>${data[key].info1}</info>
+								<info>${data[key].info2}</info>
+								<br>
+							</dt>
+						`);
+					}
+				});
+				/* 载入友链 */
+				$.get("friends.json", function(data) {
+					$("#links").empty();
+					for (key in data) {
+						if(data[key].avatar.startsWith("img:")) {
+							avatar = data[key].avatar.split("img:").join('');
+							$("#links").append(`
+								<dt onclick="location.href='${data[key].link}'">
+									<img class="avatar" src="${avatar}">
+									<h1 class="tit">${data[key].title}</h1>
+									<h2 class="subtit">${data[key].subtitle}</h2>
+									<info>${data[key].description}</info>
+									<br>
+								</dt>
+							`);
+						}
+						else {
+							$("#links").append(`
+								<dt onclick="location.href='${data[key].link}'">
+									<hh class="avatar">${data[key].avatar}</hh>
+									<h1 class="tit">${data[key].title}</h1>
+									<h2 class="subtit">${data[key].subtitle}</h2>
+									<info>${data[key].description}</info>
+									<br>
+								</dt>
+							`);
+						}
+						
+					}
+				});
+			});
+		</script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<!-- 结束 可以延迟加载的js -->
+	</body>
 </html>

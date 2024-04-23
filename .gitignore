@@ -25,6 +25,3 @@ dist-ssr
 
 # win files
 desktop.ini
-
-# git (mingw)
-.git

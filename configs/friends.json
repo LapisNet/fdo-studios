@@ -1,0 +1,16 @@
+{
+	"0": {
+		"avatar": "img:https://github.githubassets.com/favicons/favicon-dark.png",
+		"title": "GitHub",
+		"subtitle": "Let’s build from here",
+		"description": "感谢GitHub为此页面提供存储服务",
+		"link": "https://github.com/butian103/FreeDayO-Network"
+	},
+	"1": {
+		"avatar": "FDS",
+		"title": "Field of Dream Studio",
+		"subtitle": "幻梦至实",
+		"description": "",
+		"link": "https://fds.moe"
+	}
+}

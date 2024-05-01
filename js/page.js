@@ -2,17 +2,17 @@ console.log("page.js has been loaded.");
 
 const 我不知道该叫什么函数 = function() {
 	const weekDays = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
-	var timeText = document.getElementById("time-text"), date = document.getElementById("date"), time = document.getElementById("time");
+	let timeText = document.getElementById("time-text"), date = document.getElementById("date"), time = document.getElementById("time");
 	var currentTime = new Date();
 	var y = currentTime.getFullYear(), month = currentTime.getMonth() + 1, d = currentTime.getDate();
 	var day = currentTime.getDay();
 	var h = currentTime.getHours(), mins = currentTime.getMinutes();
+		var isYuZuFans = false;
 	// 判断小时数,改变文字信息
-	if(h >= 4) {
+	if(h == 23 || (h >= 0 && h <= 6)) {
 		timeText.innerHTML = "已经很晚啦,早点休息哟 (ᴗ˳ᴗ).zZ"
 	}
 	if(h >= 7) {
-		isYuZuFans = false;
 		isYuZuFans? timeText.innerHTML = "Ciallo～(∠・ω< )⌒★": timeText.innerHTML = "早上好啊,今天也是活力满满的一天呐! ~~~ヾ(＾∇＾)♪";
 	}
 	if(h >= 12) {
@@ -26,17 +26,6 @@ const 我不知道该叫什么函数 = function() {
 	}
 	if(h >= 21) {
 		timeText.innerHTML = "夜晚的星星,很美丽呢 (☆▽☆)y"
-	}
-	if(h >= 23) {
-		setTimeout(function() {
-			timeText.innerHTML = "时间不早啦,早点睡吧 (ᴗ˳ᴗ)."
-		}, 1000);
-		setTimeout(function() {
-			timeText.innerHTML = "时间不早啦,早点睡吧 (ᴗ˳ᴗ).z"
-		}, 1000);
-		setTimeout(function() {
-			timeText.innerHTML = "时间不早啦,早点睡吧 (ᴗ˳ᴗ).zZ"
-		}, 1000);
 	}
 	// 日期时间部分
 	date.innerHTML = (y + '/' + (month < 10? '0' + month: month) + '/' + (d < 10? '0' + d: d) + ' ' + weekDays[day]);
@@ -79,4 +68,4 @@ const page = {
 	}
 }
 
-setInterval("我不知道该叫什么函数();", 3000);
+setInterval("我不知道该叫什么函数();", 60000);

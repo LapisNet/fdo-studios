@@ -8,12 +8,20 @@
 
 body {
 	background: /* url("../img/mobileBg.webp") */ url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") no-repeat #d5d3d4;
-	background-size: auto 135%;
+	background-size: auto calc(100vh);
+}
+details {
+	padding: 6px;
+	background-color: #233;
+	border-radius: 10px;
+}
+details > dl {
+	background-color: unset;
 }
 
 .protect_eyes {
-	width: 100%;
-	height: 100%;
+	width: calc(100vw);
+	height: calc(150vh);
 	z-index: 114514;
 	margin-top: -8px;
 	margin-left: -8px;
@@ -23,8 +31,8 @@ body {
 }
 
 .noscript_background {
-	width: 100%;
-	height: 100%;
+	width: calc(100vw);
+	height: calc(150vh);
 	margin-top: -8px;
 	margin-left: -8px;
 	position: absolute;
@@ -44,18 +52,18 @@ div.noscript_panel {
 	z-index: 10;
 }
 
-h1.tit {
+.tit {
 	font-size: 140%;
 }
-h2.subtit {
+.subtit {
 	margin-top: -16px;
 	font-size: 100%;
 }
-h1, h2 {
-	&:before {
+.tit, .subtit {
+	&::before {
 		content: "- ";
 	}
-	&:after {
+	&::after {
 		content: " -";
 	}
 }
@@ -72,11 +80,12 @@ hh {
 	background-color: #00000064;
 	position: fixed;
 	width: 100%;
+	height: calc(8vh);
 	z-index: 100;
 }
 img#fdo-logo {
-	width: 60%;
-	height: auto;
+	width: auto;
+	height: 100%;
 	cursor: pointer;
 }
 img.avatar {
@@ -91,6 +100,10 @@ dl {
 	background-color: black;
 	color: white;
 }
+dl#news {
+	display: flex;
+	flex-direction: column-reverse;
+}
 dt {
 	margin-top: 24px;
 }
@@ -102,6 +115,23 @@ dt > h2.subtit {
 }
 dt > h1.tit, dt > h2.subtit {
 	margin-left: 44px;
+}
+dt > * > s {
+	background-color: #ccc;
+	text-decoration: none;
+	&:hover {
+		background-color: unset;
+		&::before {
+			padding: 6px;
+			content: "你知道的太多了";
+			position: absolute;
+			color: #233;
+			background-color: deepskyblue;
+			border-radius: 10px;
+			margin-top: 24px;
+			box-shadow: 4px 4px #00f6;
+		}
+	}
 }
 
 #menu {
@@ -153,6 +183,7 @@ div.panel {
 	background-color: #069;
 	border-radius: 0 10px 10px;
 	box-shadow: 2px 2px #00000064;
+	width: calc(90.5vw);
 }
 div#friend > dl > dt {
 	padding: 10px;
@@ -168,12 +199,18 @@ div#friend > dl > dt {
 } */
 
 line {
-	&:after {
+	&::after {
 		content: " -----";
 		white-space: pre;
 	}
-	&:before {
+	&::before {
 		content: "\a\a----- ";
 		white-space: pre;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.tit-img {
+		height: calc(10.5vh);
 	}
 }

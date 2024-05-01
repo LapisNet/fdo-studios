@@ -1,12 +1,11 @@
 <!doctype html><html lang="zh">
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="description" content="FreeDayO 开发组页面">
+		<meta name="description" content="FreeDayO 开发组官网">
 		<meta name="keywords" content="fdo, freedayo, fdo开发组, freedayo开发组, github">
-		<meta name="author" content="XiaozhiSans(FDO开发组)">
+		<meta name="author" content="XiaozhiSans">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>FreeDayO | FDO 开发组</title>
+		<title>FreeDayO | FDO 开发组官网</title>
 		<link rel="icon" type="image/webp" href="https://xiaozhisans.github.io/friends/avatar/fdo-simple.webp">
 		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 		<!-- <link rel="stylesheet" type="text/css" href="css/fdo.css"> -->
@@ -17,7 +16,7 @@
 		<!-- 结束 不得不提前加载的js -->
 	</head>
 
-	<body>
+	<body style="display: inline-block;">
 		<!-- 夜间护眼 -->
 		<div class="protect_eyes" style="display: none;"></div>
 		<!-- 结束 夜间护眼 -->
@@ -33,7 +32,7 @@
 		<!-- 结束 没有js警告 -->
 
 		<!-- 顶部logo -->
-		<a onclick="#index" class="tit-img"><img id="fdo-logo" src="public/FDOLOGO.png" srcc="img/fdo-logo.webp"></a>
+		<a onclick="#index" class="tit-img"><img id="fdo-logo" src="public/FDOLOGO.png" 本来打算用的src后来太懒了没做webp就放弃了="img/fdo-logo.webp"></a>
 		<!-- 结束 顶部logo -->
 
 		<!-- 顶部菜单 -->
@@ -71,7 +70,15 @@
 			<h1 class="tit">新闻</h1>
 			<h2 class="subtit">News</h2>
 			<info>来看看FDO开发组的动态吧 ~(￣▽￣)~</info>
-			<dl id="news">Loading...</dl>
+			<dl id="news">
+				<dt>
+					<details>
+						<summary class="tit">过时新闻</summary>
+						<dl class="subtit">这里的东东距离现在已经超过30天惹~</dl>
+						<dl id="outDateNews"></dl>
+					</details>
+				</dt>
+			</dl>
 		</div>
 		<!-- end index -->
 
@@ -132,27 +139,33 @@
 		<!-- 可以延迟加载的js -->
 		<script type="text/javascript">
 			$(document).ready(function(){
+				我不知道该叫什么函数();
 				/* 载入新闻 */
-				$.get("https://butian103.github.io/FreeDayO-NetWork/new.txt", function(data) {
-					$("#news").empty();
+				$.get("configs/news.txt", function(data) {
+					// $("#news").empty();
 					let lines = data.split('\n');
-					lines.forEach(element => {
-						$("#news").append(`<dt><h3>${element}</h3></dt>`);
-					});
+					for(line of lines) {
+						if (Math.floor(((new Date().getTime()) - ((new Date(line.split(' ')[0]).getTime()))) / 86400000) > 30) {
+							$("#outDateNews").append(`<dt><h3>${line}</h3></dt>`);
+						}
+						else {
+							$("#news").append(`<dt><h3>${line}</h3></dt>`);
+						}
+					}
 				});
 				/* 载入成员 */
-				$.get("https://butian103.github.io/FreeDayO-NetWork/js/mock/person.json", function(data) {
+				$.get("configs/members.json", function(data) {
 					$("#members").empty();
 					for (let key in data) {
 						$("#members").append(`
 							<dt>
-								<a class="button" onclick="location.href='https://butian103.github.io/FreeDayO-NetWork/page/person/${data[key].url}.html'" href="#">${data[key].name}</a>
+								<a class="button" onclick="location.href='members/${data[key].name}/'" href="#member">${data[key].name}</a>
 							</dt>
 						`);
 					}
 				});
 				/* 载入项目 */
-				$.get("https://butian103.github.io/FreeDayO-NetWork/js/mock/project.json", function(data) {
+				$.get("configs/projects.json", function(data) {
 					$("#projects").empty();
 					for (let key in data) {
 						$("#projects").append(`
@@ -167,7 +180,7 @@
 					}
 				});
 				/* 载入友链 */
-				$.get("friends.json", function(data) {
+				$.get("configs/friends.json", function(data) {
 					$("#links").empty();
 					for (key in data) {
 						if(data[key].avatar.startsWith("img:")) {

@@ -1,6 +1,7 @@
 const tabs = ["index", "project", "member", "about", "friend", "setting"],
-titles = ["主页", "项目", "成员", "关于", "友链", "设置"],
-listenFun = function() {
+titles = ["主页", "项目", "成员", "关于", "友链", "设置"];
+
+function listenFun() {
 	document.getElementsByClassName("tab-btn")[0].style.display = "none";
 	hash = location.hash.split('#').join('');
 	if(hash == '') return 0;
@@ -17,4 +18,5 @@ listenFun = function() {
 		document.getElementsByTagName("title")[0].innerHTML = "FreeDayO | 404";
 	}
 }
+
 onhashchange = onload = listenFun;

@@ -4,13 +4,27 @@
 		"title": "GitHub",
 		"subtitle": "Let’s build from here",
 		"description": "感谢GitHub为此页面提供存储服务",
-		"link": "https://github.com/butian103/FreeDayO-Network"
+		"link": "https://github.com/xiaozhiSans/fdo-studios"
 	},
 	"1": {
 		"avatar": "FDS",
 		"title": "Field of Dream Studio",
 		"subtitle": "幻梦至实",
-		"description": "",
+		"description": "我不好说(",
 		"link": "https://fds.moe"
+	},
+	"2": {
+		"avatar": "img:https://xiaozhisans.blogu.tc/friends/avatar/fdo-simple.webp",
+		"title": "FreeDayO 临时官网原站",
+		"subtitle": "FreeDayO-NetWork",
+		"description": "喵喵喵?",
+		"link": "https://github.com/BuTian103/FreeDayO-NetWork"
+	},
+	"3": {
+		"avatar": "img:https://avatars.githubusercontent.com/u/127290936?v=4",
+		"title": "XiaozhiSans' blog",
+		"subtitle": "(｡ì _ í｡)",
+		"description": "没错镜像站就挂在某人的部落格下(",
+		"link": "https://xiaozhisans.blogu.tc"
 	}
 }

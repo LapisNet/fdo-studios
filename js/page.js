@@ -1,13 +1,13 @@
-console.log("page.js has been loaded.");
+console.log("[page.js] page.js has been loaded.");
 
 const 我不知道该叫什么函数 = function() {
 	const weekDays = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 	let timeText = document.getElementById("time-text"), date = document.getElementById("date"), time = document.getElementById("time");
-	var currentTime = new Date();
-	var y = currentTime.getFullYear(), month = currentTime.getMonth() + 1, d = currentTime.getDate();
-	var day = currentTime.getDay();
-	var h = currentTime.getHours(), mins = currentTime.getMinutes();
-		var isYuZuFans = false;
+	let currentTime = new Date();
+	let y = currentTime.getFullYear(), month = currentTime.getMonth() + 1, d = currentTime.getDate();
+	let day = currentTime.getDay();
+	let h = currentTime.getHours(), mins = currentTime.getMinutes();
+		let isYuZuFans = false;
 	// 判断小时数,改变文字信息
 	if(h == 23 || (h >= 0 && h <= 6)) {
 		timeText.innerHTML = "已经很晚啦,早点休息哟 (ᴗ˳ᴗ).zZ"
@@ -31,13 +31,9 @@ const 我不知道该叫什么函数 = function() {
 	date.innerHTML = (y + '/' + (month < 10? '0' + month: month) + '/' + (d < 10? '0' + d: d) + ' ' + weekDays[day]);
 	time.innerHTML = ((h < 10? '0' + h: h) + ':' + (mins < 10? '0' + mins: mins) + (h >= 13? " pm": " am"));
 
-	// 夜间自动护眼
-	const protect_eyes = document.getElementsByClassName("protect_eyes")[0];
-	if(h >= 20 || h <= 5) {
-		protect_eyes.style.display = "block";
-	}
-	else {
-		protect_eyes.style.display = "none";
+	// 船新夜间模式喵
+	if(h <= 7 || h >= 20 /* || true */) {
+		document.querySelector("html").setAttribute("dark", '');
 	}
 }
 
@@ -47,13 +43,14 @@ const page = {
 		const btns = document.getElementsByClassName("tab-btn");
 		const panels = document.getElementsByClassName("panel");
 		for(btn of btns) {
-			btnN = btn.getAttribute("href").split('#').join('');
+			btnN = btn.getAttribute("href").replace('#', '');
 			pressed = btn.getAttribute("pressed");
-			if(pressed === "true" && btnN !== btnName) {
-				btn.setAttribute("pressed", "false");
+			if(pressed && btnN === btnName) {return;}
+			if(!pressed && btnN === btnName) {
+				btn.setAttribute("pressed", '');
 			}
-			if(btnN === btnName) {
-				btn.setAttribute("pressed", "true");
+			else {
+				btn.removeAttribute("pressed");
 			}
 		}
 		for(panel of panels) {

@@ -7,7 +7,7 @@
 }
 
 body {
-	background: /* url("../img/mobileBg.webp") */ url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") no-repeat #d5d3d4;
+	background: url("../public/bg_freelucker.png") /* url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") */ fixed right no-repeat #d5d3d4;
 	background-size: auto calc(100vh);
 }
 details {
@@ -18,16 +18,8 @@ details {
 details > dl {
 	background-color: unset;
 }
-
-.protect_eyes {
-	width: calc(100vw);
-	height: calc(150vh);
-	z-index: 114514;
-	margin-top: -8px;
-	margin-left: -8px;
-	position: absolute;
-	background-color: #000b;
-	pointer-events: none;
+summary {
+	user-select: none;
 }
 
 .noscript_background {
@@ -59,14 +51,14 @@ div.noscript_panel {
 	margin-top: -16px;
 	font-size: 100%;
 }
-.tit, .subtit {
-	&::before {
-		content: "- ";
-	}
-	&::after {
-		content: " -";
-	}
+
+.tit::before, .subtit::before {
+	content: "- ";
 }
+.tit::after, .subtit::after {
+	content: " -";
+}
+
 hh {
 	font-size: 135%;
 	font-weight: bold;
@@ -99,8 +91,10 @@ dl {
 	border-radius: 10px;
 	background-color: black;
 	color: white;
+	max-height: 1000px;
+	transition: height 2s ease-in-out;
 }
-dl#news {
+dl#outDateNews, dl#news {
 	display: flex;
 	flex-direction: column-reverse;
 }
@@ -116,22 +110,32 @@ dt > h2.subtit {
 dt > h1.tit, dt > h2.subtit {
 	margin-left: 44px;
 }
-dt > * > s {
+s {
 	background-color: #ccc;
 	text-decoration: none;
-	&:hover {
-		background-color: unset;
-		&::before {
-			padding: 6px;
-			content: "你知道的太多了";
-			position: absolute;
-			color: #233;
-			background-color: deepskyblue;
-			border-radius: 10px;
-			margin-top: 24px;
-			box-shadow: 4px 4px #00f6;
-		}
-	}
+	transition: all 1s;
+}
+s:hover {
+	background-color: unset;
+}
+s:hover::before {
+	max-height: calc(10vh);
+	box-shadow: 4px 4px #00f6;
+	color: #233;
+	background-color: deepskyblue;
+}
+s::before {
+	padding: 6px;
+	content: "你知道的太多了";
+	position: absolute;
+	color: transparent;
+	background-color: transparent;
+	text-align: center;
+	border-radius: 10px;
+	margin-top: 24px;
+	max-height: 0;
+	box-shadow: unset;
+	transition: all 1s;
 }
 
 #menu {
@@ -166,12 +170,13 @@ a.tab-btn {
 	margin-top: 100px;
 	margin-right: 4px;
 	box-shadow: 4px 0px #00000064;
-	&:hover {
-		color: #036;
-		background-color: #ccc;
-	}
+	transition: all 2s;
 }
-a.tab-btn[pressed="true"] {
+a.tab-btn:hover {
+	color: #036;
+	background-color: #ccc;
+}
+a.tab-btn[pressed] {
 	color: #ccc;
 	background-color: #069;
 	font-style: italic;
@@ -191,26 +196,52 @@ div#friend > dl > dt {
 	border-radius: 10px;
 	user-select: none;
 	cursor: pointer;
+	transition: all 1s;
 }
-/* div.friend {
-	cursor: pointer;
-	background-color: hotpink;
-	border-radius: 10px;
-} */
+div#friend>dl>dt:hover {
+	background-color: deeppink;
+}
 
-line {
-	&::after {
-		content: " -----";
-		white-space: pre;
-	}
-	&::before {
-		content: "\a\a----- ";
-		white-space: pre;
-	}
+line::after {
+	content: " -----";
+	white-space: pre;
+}
+line::before {
+	content: "\a\a----- ";
+	white-space: pre;
+}
+
+dt>info::before {
+	content: "- ";
+	/* 致敬旧版页面 */
 }
 
 @media screen and (min-width: 1000px) {
 	.tit-img {
 		height: calc(10.5vh);
 	}
+	div#menu, div.panel {
+		margin-left: calc(2vw);
+	}
+}
+
+html, div.panel {
+	transition: all 1s;
+}
+
+html[dark], html[dark]>body {
+	background-color: #181a1b !important;
+	color: white;
+}
+html[dark]>body>*>a.tab-btn {
+	background-color: #023;
+}
+html[dark]>body>*>a.tab-btn:hover {
+	background-color: #069;
+}
+html[dark]>body>div.panel, html[dark]>body>*>a.tab-btn[pressed] {
+	background-color: #233;
+}
+html[dark]>body>*>*>#date, html[dark]>body>*>*>#time {
+	color: #999;
 }

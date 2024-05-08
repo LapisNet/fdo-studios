@@ -25,3 +25,7 @@ dist-ssr
 
 # win files
 desktop.ini
+
+# sublime files
+*.sublime-project
+*.sublime-workspace

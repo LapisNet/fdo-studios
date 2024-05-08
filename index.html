@@ -17,9 +17,6 @@
 	</head>
 
 	<body style="display: inline-block;">
-		<!-- 夜间护眼 -->
-		<div class="protect_eyes" style="display: none;"></div>
-		<!-- 结束 夜间护眼 -->
 
 		<!-- 没有js权限警告 -->
 		<noscript class="noscript_background">
@@ -32,7 +29,7 @@
 		<!-- 结束 没有js警告 -->
 
 		<!-- 顶部logo -->
-		<a onclick="#index" class="tit-img"><img id="fdo-logo" src="public/FDOLOGO.png" 本来打算用的src后来太懒了没做webp就放弃了="img/fdo-logo.webp"></a>
+		<a href="#index" class="tit-img"><img id="fdo-logo" src="public/FDOLOGO.png" 本来打算用的src后来太懒了没做webp就放弃了="img/fdo-logo.webp"></a>
 		<!-- 结束 顶部logo -->
 
 		<!-- 顶部菜单 -->
@@ -61,6 +58,7 @@
 		<div id="index" name="index" class="panel">
 			<h1 class="tit">欢迎!</h1>
 			<h2 class="subtit">Welcome!</h2>
+			<info>此站点为 xstheme 镜像站</info>
 			<h3 id="time-text">o(^▽^)o</h3>
 			<info>
 				今天是 <info id="date">Loading...</info><br>
@@ -159,7 +157,7 @@
 					for (let key in data) {
 						$("#members").append(`
 							<dt>
-								<a class="button" onclick="location.href='members/${data[key].name}/'" href="#member">${data[key].name}</a>
+								<a class="button" onclick="window.open('members/${data[key].name}/');" href="#member">${data[key].name}</a>
 							</dt>
 						`);
 					}
@@ -186,7 +184,7 @@
 						if(data[key].avatar.startsWith("img:")) {
 							avatar = data[key].avatar.split("img:").join('');
 							$("#links").append(`
-								<dt onclick="location.href='${data[key].link}'">
+								<dt onclick="window.open('${data[key].link}');">
 									<img class="avatar" src="${avatar}">
 									<h1 class="tit">${data[key].title}</h1>
 									<h2 class="subtit">${data[key].subtitle}</h2>
@@ -197,7 +195,7 @@
 						}
 						else {
 							$("#links").append(`
-								<dt onclick="location.href='${data[key].link}'">
+								<dt onclick="window.open('${data[key].link}');">
 									<hh class="avatar">${data[key].avatar}</hh>
 									<h1 class="tit">${data[key].title}</h1>
 									<h2 class="subtit">${data[key].subtitle}</h2>

@@ -3,7 +3,7 @@
  */
 
 body {
-	background: url("../public/bg_freelucker.png") /* url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") */ fixed right no-repeat #d5d3d4;
+	background: url("https://gcore.jsdelivr.net/gh/XiaozhiSans/fdo-studios/public/bg_freelucker.png") /* url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") */ fixed right no-repeat #d5d3d4;
 	background-size: auto calc(100vh);
 }
 details {

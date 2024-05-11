@@ -4,7 +4,7 @@ titles = ["主页", "项目", "成员", "关于", "友链", "设置"];
 function listenFun() {
 	document.getElementsByClassName("tab-btn")[0].style.display = "none";
 	hash = location.hash.split('#').join('');
-	if(hash == '') return 0;
+	if(hash == '') return ;
 	else {
 		for (var i in tabs) {
 			if(tabs[i] == hash) {
@@ -20,3 +20,4 @@ function listenFun() {
 }
 
 onhashchange = onload = listenFun;
+listenFun = undefined;

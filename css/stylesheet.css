@@ -2,10 +2,6 @@
  * 我不好说
  */
 
-* {
-	color: #ccc;
-}
-
 body {
 	background: url("../public/bg_freelucker.png") /* url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") */ fixed right no-repeat #d5d3d4;
 	background-size: auto calc(100vh);
@@ -24,24 +20,28 @@ summary {
 
 .noscript_background {
 	width: calc(100vw);
-	height: calc(150vh);
+	height: calc(100vh);
 	margin-top: -8px;
 	margin-left: -8px;
-	position: absolute;
-	background-color: #000c;
-	z-index: 10-1;
+	position: fixed;
+	background-color: #000d;
+	z-index: 99;
 }
 
 div.noscript_panel {
 	font-size: 145%;
-	position: absolute;
+	text-align: center;
+	position: fixed;
 	padding: 10px;
-	margin-top: 80%;
-	margin-left: 8px;
+	margin-top: calc(15vh);
+	margin-left: 10px;
+	min-width: calc(70vw);
+	color: black;
 	background-color: deepskyblue;
 	border-radius: 10px;
-	box-shadow: 4px 4px #0009;
-	z-index: 10;
+	box-shadow: 4px 4px #88f4;
+	z-index: 100;
+	transition: all 2s;
 }
 
 .tit {
@@ -91,12 +91,23 @@ dl {
 	border-radius: 10px;
 	background-color: black;
 	color: white;
-	max-height: 1000px;
+	justify-content: center;
 	transition: height 2s ease-in-out;
 }
 dl#outDateNews, dl#news {
 	display: flex;
 	flex-direction: column-reverse;
+}
+dl#members {
+	display: flex;
+	flex-wrap: wrap;
+}
+dl#members > dt {
+	flex-basis: 50%;
+	text-align: center;
+}
+dl#members>dt>a.button {
+	margin: 10px;
 }
 dt {
 	margin-top: 24px;
@@ -111,11 +122,13 @@ dt > h1.tit, dt > h2.subtit {
 	margin-left: 44px;
 }
 s {
-	background-color: #ccc;
+	color: transparent;
+	background-color: white;
 	text-decoration: none;
 	transition: all 1s;
 }
 s:hover {
+	color: unset;
 	background-color: unset;
 }
 s:hover::before {
@@ -136,6 +149,17 @@ s::before {
 	max-height: 0;
 	box-shadow: unset;
 	transition: all 1s;
+	pointer-events: none;
+}
+
+span.fold:hover>dl#outDateNews, span.fold:focus>dl#outDateNews {
+	max-height: 1000px;
+	opacity: 1;
+}
+dl#outDateNews {
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 2s, opacity 1.2s;
 }
 
 #menu {
@@ -147,15 +171,32 @@ s::before {
 	color: blue;
 }
 
+a {
+	color: white;
+}
+
+a.link::after {
+	display: inline-block;
+	content: url("../public/link.svg");
+	width: 16px;
+	height: 16px;
+	margin-left: 2px;
+}
+
 a.button {
+	display: block;
 	font-size: 110%;
 	text-decoration: none;
 	padding: 10px;
-	background-color: pink;
+	background-color: #ffc0cb73;
 	border-radius: 10px;
 	user-select: none;
 	cursor: pointer;
 	color: black;
+	transition: all 2s;
+}
+a.button:hover, a.button:focus {
+	background-color: deeppink;
 }
 
 
@@ -182,9 +223,40 @@ a.tab-btn[pressed] {
 	font-style: italic;
 }
 
+sidebar {
+	max-height: 16px;
+	padding: 16px;
+	position: fixed;
+	right: calc(-8vw);
+	top: calc(45vh);
+	background-color: #234a;
+	border-radius: 10px;
+	transition: all 2s;
+	user-select: none;
+}
+sidebar::before {
+	content: '+';
+}
+sidebar:hover::before, sidebar:focus::before {
+	content: '×';
+}
+sidebar:hover, sidebar:focus,
+sidebar:hover>dl#sidebar>dt>a, sidebar:focus>dl#sidebar>dt>a {
+	opacity: 1;
+	max-height: 1000px;
+	right: 0;
+}
+dl#sidebar {
+	background-color: transparent;
+}
+dl#sidebar>dt>a {
+	transition: all 1.2s;
+	opacity: 0;
+}
+
 div.panel {
 	padding: 10px;
-	/* margin-top: 2px; */
+	margin-top: -1px;
 	background-color: #069;
 	border-radius: 0 10px 10px;
 	box-shadow: 2px 2px #00000064;
@@ -192,7 +264,7 @@ div.panel {
 }
 div#friend > dl > dt {
 	padding: 10px;
-	background-color: hotpink;
+	background-color: #FF149355;
 	border-radius: 10px;
 	user-select: none;
 	cursor: pointer;
@@ -200,6 +272,9 @@ div#friend > dl > dt {
 }
 div#friend>dl>dt:hover {
 	background-color: deeppink;
+}
+div#friend>dl>dt>* {
+	color: white;
 }
 
 line::after {
@@ -216,12 +291,34 @@ dt>info::before {
 	/* 致敬旧版页面 */
 }
 
+footer {
+	text-align: center;
+}
+
 @media screen and (min-width: 1000px) {
 	.tit-img {
 		height: calc(10.5vh);
 	}
+	div.noscript_panel {
+		min-width: unset;
+	}
 	div#menu, div.panel {
 		margin-left: calc(2vw);
+	}
+	div#friend>dl>dt {
+		margin: 10px;
+		width: 32%;
+		flex-basis: 36%;
+	}
+	dl#links {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	dl#members > dt {
+		flex-basis: 30%;
+	}
+	sidebar {
+		right: calc(-5vw);
 	}
 }
 
@@ -229,6 +326,7 @@ html, div.panel {
 	transition: all 1s;
 }
 
+/* 石山夜间模式 */
 html[dark], html[dark]>body {
 	background-color: #181a1b !important;
 	color: white;

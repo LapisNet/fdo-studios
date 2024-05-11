@@ -15,12 +15,12 @@
     "title": "mc命令自动补全工具",
     "titb": "命令补全/纠错<s>/摸鱼</s>工具",
     "info1": "本工具提供了对mcfunction内命令的自动补全功能,解决了很多新人总是记不住命令拼写的问题,以及想偷懒的诉求( 比如function就可以简写为fun ) <br>- 可视化UI方便新人使用",
-    "info2": "链接: <i style=\"color: blue;\" onclick=\"window.open('https://love-kogasa.github.io/mcfunctionAutoCompletionTool/')\">点我访问</i>"
+    "info2": "链接: <i style=\"color: deepskyblue;\" onclick=\"window.open('https://love-kogasa.github.io/mcfunctionAutoCompletionTool/')\">点我访问</i>"
   },
   "3": {
     "title": "smcf.js 编译器",
     "titb": "基于web的smcf编译器实现.",
-    "info1": "<s>虽然叫cper,但她可不是帮你组cp的</s>",
-    "info2": "链接: <i style=\"color: blue;\" onclick=\"window.open('https://xiaozhisans.github.io/smcfcper/')\">点我访问</i>"
+    "info1": "<s>虽然叫cper,但她可不是帮你组cp的(</s>",
+    "info2": "链接: <i style=\"color: deepskyblue;\" onclick=\"window.open('https://xiaozhisans.github.io/smcfcper/')\">点我访问</i>"
   }
 }

@@ -10,14 +10,14 @@
 		"avatar": "FDS",
 		"title": "Field of Dream Studio",
 		"subtitle": "幻梦至实",
-		"description": "我不好说(",
+		"description": "把牛卖了换pmine pmine就是牛<s>🐮👍</s>",
 		"link": "https://fds.moe"
 	},
 	"2": {
 		"avatar": "img:https://xiaozhisans.blogu.tc/friends/avatar/fdo-simple.webp",
-		"title": "FreeDayO 临时官网原站",
+		"title": "FreeDayO 临时官网",
 		"subtitle": "FreeDayO-NetWork",
-		"description": "喵喵喵?",
+		"description": "这是原站,晚上不要轻易打开<s>,小心a1高闪(</s>",
 		"link": "https://github.com/BuTian103/FreeDayO-NetWork"
 	},
 	"3": {
@@ -26,5 +26,12 @@
 		"subtitle": "(｡ì _ í｡)",
 		"description": "没错镜像站就挂在某人的部落格下(",
 		"link": "https://xiaozhisans.blogu.tc"
+	},
+	"4": {
+		"avatar": "img:https://mcisee.top/assets/icon/favicon.ico",
+		"title": "所见皆是Minecraft",
+		"subtitle": "MCiSEE",
+		"description": "所见皆是Minecraft，让获取MC资源更加轻便！",
+		"link": "https://mcisee.top"
 	}
 }

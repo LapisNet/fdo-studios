@@ -32,6 +32,15 @@
 		<a href="#index" class="tit-img"><img id="fdo-logo" src="public/FDOLOGO.png" 本来打算用的src后来太懒了没做webp就放弃了="img/fdo-logo.webp"></a>
 		<!-- 结束 顶部logo -->
 
+		<sidebar>
+			快速访问
+			<dl id="sidebar">
+				<dt><a href="https://love-kogasa.github.io/FJST/" class="link">fjst工具箱</a></dt>
+				<dt><a href="https://pmine.org/" class="link">pmine工具箱</a></dt>
+				<dt><a href="https://mcisee.top/" class="link">所见皆是mc</a></dt>
+			</dl>
+		</sidebar>
+
 		<!-- 顶部菜单 -->
 		<div id="menu">
 			<a href="#404" class="tab-btn" style="display: none;">404</a>
@@ -39,8 +48,8 @@
 			<!-- <a href="#index-new" class="tab-btn">新闻</a> -->
 			<a href="#project" class="tab-btn">项目</a>
 			<a href="#member" class="tab-btn">成员</a>
-			<a href="#about" class="tab-btn">关于</a>
 			<a href="#friend" class="tab-btn">友链</a>
+			<a href="#about" class="tab-btn">关于</a>
 			<!-- 我太懒了,这个就先鸽着吧( -->
 			<!-- <a href="#setting" class="tab-btn">设置</a> -->
 		</div>
@@ -50,7 +59,7 @@
 		<div id="404" name="404" class="panel" style="display: none;">
 			<h1 class="tit">啊嘞嘞?</h1>
 			<h2 class="subtit">这个页面找不到了... Σ(っ °Д °;)っ</h2>
-			<dl>404 Not Found</dl>
+			<dl><dt>404 Not Found</dt></dl>
 		</div>
 		<!-- end 404 -->
 
@@ -58,7 +67,7 @@
 		<div id="index" name="index" class="panel">
 			<h1 class="tit">欢迎!</h1>
 			<h2 class="subtit">Welcome!</h2>
-			<info>此站点为 xstheme 镜像站</info>
+			<info>此站点为 xstheme 镜像站<br><a class="link" href="https://github.com/BuTian103/FreeDayO-NetWork" target="_new">点我访问原站</a><br>小心a1高闪(笑</info>
 			<h3 id="time-text">o(^▽^)o</h3>
 			<info>
 				今天是 <info id="date">Loading...</info><br>
@@ -69,14 +78,15 @@
 			<h2 class="subtit">News</h2>
 			<info>来看看FDO开发组的动态吧 ~(￣▽￣)~</info>
 			<dl id="news">
-				<dt>
-					<details>
-						<summary class="tit">过时新闻</summary>
-						<dl class="subtit">这里的东东距离现在已经超过30天惹~</dl>
-						<dl id="outDateNews"></dl>
-					</details>
-				</dt>
+				<dt>Loading...</dt>
 			</dl>
+			<span class="fold">
+				<h1 class="tit">过时新闻</h1>
+				<h2 class="subtit">Outdate News</h2>
+				<info class="subtit">这里的东东距离现在已经超过30天惹~</info><br>
+				<i>默认不展示,鼠标悬停/手机点击以显示</i>
+				<dl id="outDateNews"></dl>
+			</span>
 		</div>
 		<!-- end index -->
 
@@ -85,7 +95,7 @@
 			<h1 class="tit">项目</h1>
 			<h2 class="subtit">Projects</h2>
 			<info>＜（＾－＾）＞</info>
-			<dl id="projects">Loading...</dl>
+			<dl id="projects"><dt>Loading...</dt></dl>
 		</div>
 		<!-- end project -->
 
@@ -94,7 +104,7 @@
 			<h1 class="tit">成员</h1>
 			<h2 class="subtit">Members</h2>
 			<info>开发组里都有谁呢? (¬‿¬)</info>
-			<dl id="members">Loading...</dl>
+			<dl id="members"><dt>Loading...</dt></dl>
 		</div>
 		<!-- end member -->
 
@@ -103,7 +113,7 @@
 			<h1 class="tit">关于</h1>
 			<h2 class="subtit">About</h2>
 			<info>这里有开发组的基本信息! o(￣▽￣)o</info>
-			<dl>开发组文案我就先鸽了 ˋ( ° ▽、° ) </dl>
+			<dl><dt>开发组文案我就先鸽了 ˋ( ° ▽、° ) </dt></dl>
 		</div>
 		<!-- end about -->
 
@@ -111,7 +121,8 @@
 		<div id="friend" name="friend" class="panel" style="display: none;">
 			<h1 class="tit">友情链接</h1>
 			<h2 class="subtit">Link exchange</h2>
-			<dl id="links">Loading...</dl>
+			<info>排名不分前后哦 (~￣▽￣)~</info>
+			<dl id="links"><dt>Loading...</dt></dl>
 		</div>
 		<!-- end friend -->
 
@@ -119,7 +130,7 @@
 		<div id="setting" name="setting" class="panel" style="display: none;">
 			<h1 class="tit">设置</h1>
 			<h2 class="subtit">Settings</h2>
-			<dl>
+			<dl><dt>
 				<form id="settings">
 					<label for="opacity">窗口透明度</label><br>
 					<input type="number" id="opacity" name="opacity"><br>
@@ -130,9 +141,16 @@
 						<option value="default">默认</option>
 					</select>
 				</form>
-			</dl>
+			</dt></dl>
 		</div>
 		<!-- end setting -->
+
+		<footer>
+			<p>
+				beautify mirror site | xstheme init <br>
+				Copyright (c) 2024 FreeDayO Studios, XiaozhiSans
+			</p>
+		</footer>
 
 		<!-- 可以延迟加载的js -->
 		<script type="text/javascript">
@@ -140,14 +158,14 @@
 				我不知道该叫什么函数();
 				/* 载入新闻 */
 				$.get("configs/news.txt", function(data) {
-					// $("#news").empty();
+					$("#news").empty();
 					let lines = data.split('\n');
 					for(line of lines) {
 						if (Math.floor(((new Date().getTime()) - ((new Date(line.split(' ')[0]).getTime()))) / 86400000) > 30) {
-							$("#outDateNews").append(`<dt><h3>${line}</h3></dt>`);
+							$("#outDateNews").append(`<dt><h4>${line}</h4></dt>`);
 						}
 						else {
-							$("#news").append(`<dt><h3>${line}</h3></dt>`);
+							$("#news").append(`<dt><h4>${line}</h4></dt>`);
 						}
 					}
 				});
@@ -170,7 +188,7 @@
 							<dt>
 								<h1 class="tit">${data[key].title}</h1>
 								<h2 class="subtit">${data[key].titb}</h2>
-								<info>${data[key].info1}</info>
+								<info>${data[key].info1}</info><br>
 								<info>${data[key].info2}</info>
 								<br>
 							</dt>
@@ -182,7 +200,7 @@
 					$("#links").empty();
 					for (key in data) {
 						if(data[key].avatar.startsWith("img:")) {
-							avatar = data[key].avatar.split("img:").join('');
+							avatar = data[key].avatar.replace("img:", '');
 							$("#links").append(`
 								<dt onclick="window.open('${data[key].link}');">
 									<img class="avatar" src="${avatar}">

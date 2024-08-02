@@ -1,10 +1,18 @@
 /*
  * 我不好说
  */
+@import url("./icons.css");
+@import url("./images.css");
+.fdo-tab {
+	content: '';
+	display: block;
+	background: var(--fdo-full) left no-repeat;
+	width: 1385px; height: 85px;
+	background-size: contain;
+}
 
 body {
-	background: url("https://gcore.jsdelivr.net/gh/XiaozhiSans/fdo-studios/public/bg_freelucker.png") /* url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") */ fixed right no-repeat #d5d3d4;
-	background-size: auto calc(100vh);
+	background: var(--bg-image) /* url("https://filecdn-images.xingyeai.com/image_inference_output/nebula/prod/img/2024-04-20/c06d7c14-8858-4755-a182-0758bf04faf2-1.jpeg") */ fixed top right no-repeat #d5d3d4;
 }
 details {
 	padding: 6px;
@@ -165,19 +173,35 @@ dl#outDateNews {
 #menu {
 	display: flex;
 }
+#text {
+	color: pink;
+}
 #date, #time {
 	font-size: 125%;
 	font-weight: bold;
-	color: blue;
+	color: orange;
 }
 
 a {
 	color: white;
 }
 
+a.link {
+	color: #ff0;
+	text-decoration: none;
+}
+
+a.link:hover {
+	text-decoration: underline;
+}
+
 a.link::after {
 	display: inline-block;
-	content: url("../public/link.svg");
+	color: #ff0;
+	background-color: currentColor;
+	content: '';
+	mask-image: var(--up-right-from-square);
+	background-size: contain;
 	width: 16px;
 	height: 16px;
 	margin-left: 2px;
@@ -211,7 +235,7 @@ a.tab-btn {
 	margin-top: 100px;
 	margin-right: 4px;
 	box-shadow: 4px 0px #00000064;
-	transition: all 2s;
+	transition: background-color 1.6s;
 }
 a.tab-btn:hover {
 	color: #036;
@@ -232,13 +256,22 @@ sidebar {
 	background-color: #234a;
 	border-radius: 10px;
 	transition: all 2s;
+	-webkit-user-select: none;
 	user-select: none;
 }
+sidebar>text {
+	font-size: 1.2em;
+}
 sidebar::before {
-	content: '+';
+	content: '';
+	display: inline-block;
+	background-image: var(--chevron-right);
+	width: 25px;
+	height: 25px;
+	background-size: cover;
 }
 sidebar:hover::before, sidebar:focus::before {
-	content: '×';
+	transform: rotate(90deg);
 }
 sidebar:hover, sidebar:focus,
 sidebar:hover>dl#sidebar>dt>a, sidebar:focus>dl#sidebar>dt>a {
@@ -293,6 +326,8 @@ dt>info::before {
 
 footer {
 	text-align: center;
+	color: #fff;
+	background-color: #11223333;
 }
 
 @media screen and (min-width: 1000px) {
@@ -323,11 +358,12 @@ footer {
 }
 
 html, div.panel {
-	transition: all 1s;
+	transition: background-color 0.6s;
 }
 
 /* 石山夜间模式 */
 html[dark], html[dark]>body {
+	color-scheme: dark;
 	background-color: #181a1b !important;
 	color: white;
 }
@@ -335,6 +371,7 @@ html[dark]>body>*>a.tab-btn {
 	background-color: #023;
 }
 html[dark]>body>*>a.tab-btn:hover {
+	color: #fab;
 	background-color: #069;
 }
 html[dark]>body>div.panel, html[dark]>body>*>a.tab-btn[pressed] {
@@ -342,4 +379,8 @@ html[dark]>body>div.panel, html[dark]>body>*>a.tab-btn[pressed] {
 }
 html[dark]>body>*>*>#date, html[dark]>body>*>*>#time {
 	color: #999;
+}
+html[dark]>body>footer {
+	color: #123;
+	background-color: #ffc0cb66;
 }

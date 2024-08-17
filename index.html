@@ -136,14 +136,9 @@
 				/* 载入新闻 */
 				$.get(path + "news.txt", data => {
 					$("#news").empty();
-					for(let line of data.split('\n')) {
-						/* if (Math.floor(((new Date().getTime()) - ((new Date(line.split(' ')[0]).getTime()))) / 86400000) > 30) {
-							$("#outDateNews").append(`<dt><h4>${line}</h4></dt>`);
-						}
-						else { */
-							$("#news").append(`<dt><h4>${line}</h4></dt>`);
-						// }
-					}
+					data.split('\n').forEach(
+						line => $("#news").append(`<dt><h4>${line}</h4></dt>`)
+					);
 				});
 				/* 载入成员 */
 				$.get(path + "members.json", data => {
@@ -175,23 +170,18 @@
 				$.get(path + "friends.json", data => {
 					$("#links").empty();
 					for(let key in data) {
-						let link = (data[key].avatar.startsWith("img:"))? `
-								<dt onclick="window.open('${data[key].link}');">
-									<img class="avatar" src="${data[key].avatar.replace("img:", '')}">
-									<h1 class="tit">${data[key].title}</h1>
-									<h2 class="subtit">${data[key].subtitle}</h2>
-									<info>${data[key].description}</info>
-									<br>
-								</dt>
-							`: `
-								<dt onclick="window.open('${data[key].link}');">
-									<hh class="avatar">${data[key].avatar}</hh>
-									<h1 class="tit">${data[key].title}</h1>
-									<h2 class="subtit">${data[key].subtitle}</h2>
-									<info>${data[key].description}</info>
-									<br>
-								</dt>
-							`;
+						let avatar = (data[key].avatar.startsWith('#'))?
+						`<hh class="avatar">${data[key].avatar.replace('#', '')}</hh>`:
+						`<img class="avatar" src="${data[key].avatar}">`;
+						let link = `
+							<dt onclick="window.open('${data[key].link}');">
+								${avatar}
+								<h1 class="tit">${data[key].title}</h1>
+								<h2 class="subtit">${data[key].subtitle}</h2>
+								<info>${data[key].description}</info>
+								<br>
+							</dt>
+						`;
 						$("#links").append(link);
 					}
 				});

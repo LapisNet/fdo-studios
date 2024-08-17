@@ -1,10 +1,13 @@
 const btns = document.querySelectorAll(".tab-btn");
 const panels = document.querySelectorAll(".panel");
 const title = document.querySelector("title");
+document.html = document.querySelector("html");
+
+const getHash = (url = location.href) => url.split('#')[1];
 
 const switchTab = (name) => {
 	for(let btn of btns) {
-		let btnName = btn.getAttribute("href").replace('#', '');
+		let btnName = getHash(btn.getAttribute("href"));
 		let pressed = btn.getAttribute("pressed");
 		if(pressed && btnName === name) continue;
 		if(!pressed && btnName === name) btn.setAttribute("pressed", '');
@@ -17,7 +20,7 @@ const switchTab = (name) => {
 }
 
 onhashchange = () => {
-	const hash = location.hash.replace('#', '');
+	const hash = getHash();
 	btns[0].style.display = "none";
 	if(hash == '') return;
 	else {
@@ -31,38 +34,35 @@ onhashchange = () => {
 	}
 	switchTab("404");
 	btns[0].style.display = "block";
-	title.innerText = "FreeDayO | 404 Not Found";
+	title.innerText = "FreeDayO | 404";
 }
 
 
-const 我不知道该叫什么函数 = () => {
-	const date = document.getElementById("date"),
-	time = document.getElementById("time"),
-	text = document.getElementById("text");
-	let currentTime = new Date();
-	let y = currentTime.getFullYear(), month = currentTime.getMonth() + 1, d = currentTime.getDate();
-	let day = currentTime.getDay();
-	let h = currentTime.getHours(), mins = currentTime.getMinutes();
+const main = () => {
+	const date = new Date();
+	let y = date.getFullYear(), month = date.getMonth() + 1, d = date.getDate();
+	let day = date.getDay(), h = date.getHours(), mins = date.getMinutes();
 		// let isYuZuFans = false;
 	// 判断小时数,改变文字信息
-	text.innerText = (h >= 7)? arrays.texts[0]:
-	(h >= 12)? arrays.texts[1]:
-	(h >= 13)? arrays.texts[2]:
-	(h >= 15)? arrays.texts[3]:
-	(h >= 21)? arrays.texts[4]:
+	document.querySelector("#text").innerText =
+	(h >=   7 && h < 12)? arrays.texts[0]:
+	(h >= 12 && h < 13)? arrays.texts[1]:
+	(h >= 13 && h < 15)? arrays.texts[2]:
+	(h >= 15 && h < 21)? arrays.texts[3]:
+	(h >= 21 && h < 23)? arrays.texts[4]:
 	(h == 23 || (h >= 0 && h <= 6))? arrays.texts[5]:
 	"Ciallo~(∠・ω< )⌒★";
 
 	// 日期时间部分
-	date.innerText = `${y}/${(month < 10? '0' + month: month)}/${(d < 10? '0' + d: d)} ${arrays.weekdays[day]}`;
-	time.innerText = `${(h < 10? '0' + h: h)}: ${(mins < 10? '0' + mins: mins)} ${(h >= 13? "pm": "am")}`;
+	document.querySelector("#date").innerText = `${y}/${(month < 10? '0' + month: month)}/${(d < 10? '0' + d: d)} ${arrays.weekdays[day]}`;
+	document.querySelector("#time").innerText = `${(h < 10? '0' + h: h)}: ${(mins < 10? '0' + mins: mins)} ${(h >= 13 && h <= 24)? "pm": "am"}`;
 
 	// 船新夜间模式喵
-	if(h <= 7 || h >= 20 || matchMedia("(prefers-color-scheme: dark)").matches) {
-		document.querySelector("html").setAttribute("dark", '');
+	if((h <= 7 || h >= 20) || matchMedia("(prefers-color-scheme: dark)").matches) {
+		document.html.setAttribute("dark", '');
 	}
 }
 
-$.get("assets/data/arrays.json", data => {arrays = data; 我不知道该叫什么函数();});
+$.getJSON("assets/data/arrays.json", data => (arrays = data, main()));
 
-setInterval(我不知道该叫什么函数, 60000);
+setInterval(main, 60000);
